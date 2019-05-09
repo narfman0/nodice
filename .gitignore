@@ -5,3 +5,6 @@
 *.a
 bin/NoDice
 obj/
+*.idb
+*.pdb
+*.user

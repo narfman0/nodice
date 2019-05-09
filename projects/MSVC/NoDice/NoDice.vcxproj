@@ -14,17 +14,18 @@
     <ProjectGuid>{3B7D8919-8B12-4EE5-B2FF-2CE344DF858D}</ProjectGuid>
     <RootNamespace>NoDice</RootNamespace>
     <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
     <WholeProgramOptimization>true</WholeProgramOptimization>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
@@ -59,31 +60,30 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>..\..\..\src\NoDiceLib;..\..\..\..\gtk+-dev_2.24.10-1_win32\include\gtk-2.0;..\..\..\..\gtk+-dev_2.24.10-1_win32\include\glib-2.0;C:\Program Files\Microsoft Visual Studio 8\VC\lib\glib-2.0\include;..\..\..\..\gtk+-dev_2.24.10-1_win32\include\cairo;..\..\..\..\gtk+-dev_2.24.10-1_win32\include\pango-1.0;..\..\..\..\gtk+-dev_2.24.10-1_win32\include\gdk-pixbuf-2.0;..\..\..\..\gtk+-dev_2.24.10-1_win32\include\gdk-pixbuf-2.0\gdk-pixbuf;..\..\..\..\gtk+-dev_2.24.10-1_win32\include\atk-1.0;C:\Program Files (x86)\Windows Kits\8.1\Include\um;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\src\NoDiceLib;%GTK_ROOT%\include\gtk-2.0;%GTK_ROOT%\include\glib-2.0;C:\Program Files\Microsoft Visual Studio 8\VC\lib\glib-2.0\include;%GTK_ROOT%\include\cairo;%GTK_ROOT%\include\pango-1.0;%GTK_ROOT%\include\gdk-pixbuf-2.0;%GTK_ROOT%\include\gdk-pixbuf-2.0\gdk-pixbuf;%GTK_ROOT%\include\atk-1.0;C:\Program Files (x86)\Windows Kits\8.1\Include\um;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_CRT_SECURE_NO_DEPRECATE;LSB_FIRST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <PrecompiledHeader />
-      <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <WarningLevel>Level3</WarningLevel>
     </ClCompile>
     <Link>
       <AdditionalDependencies>atk-1.0.lib;pangoft2-1.0.lib;pangocairo-1.0.lib;gdk_pixbuf-2.0.lib;libpng.lib;pango-1.0.lib;freetype.lib;gobject-2.0.lib;gmodule-2.0.lib;glib-2.0.lib;gtk-win32-2.0.lib;cairo.lib;gdk-win32-2.0.lib;gthread-2.0.lib;NoDiceLib.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <TargetMachine>MachineX86</TargetMachine>
-      <AdditionalLibraryDirectories>..\..\..\..\gtk+-dev_2.24.10-1_win32\lib;..\..\..\projects\MSVC\NoDiceLib\$(IntDir)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>%GTK_ROOT%\lib;..\..\..\projects\MSVC\NoDiceLib\$(IntDir)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..\..\..\src\NoDiceLib;..\..\..\..\gtk+-dev_2.24.10-1_win32\include\gtk-2.0;..\..\..\..\gtk+-dev_2.24.10-1_win32\include\glib-2.0;C:\Program Files\Microsoft Visual Studio 8\VC\lib\glib-2.0\include;..\..\..\..\gtk+-dev_2.24.10-1_win32\include\cairo;..\..\..\..\gtk+-dev_2.24.10-1_win32\include\pango-1.0;..\..\..\..\gtk+-dev_2.24.10-1_win32\include\gdk-pixbuf-2.0;..\..\..\..\gtk+-dev_2.24.10-1_win32\include\gdk-pixbuf-2.0\gdk-pixbuf;..\..\..\..\gtk+-dev_2.24.10-1_win32\include\atk-1.0;C:\Program Files (x86)\Windows Kits\8.1\Include\um;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\src\NoDiceLib;%GTK_ROOT%\include\gtk-2.0;%GTK_ROOT%\include\glib-2.0;C:\Program Files\Microsoft Visual Studio 8\VC\lib\glib-2.0\include;%GTK_ROOT%\include\cairo;%GTK_ROOT%\include\pango-1.0;%GTK_ROOT%\include\gdk-pixbuf-2.0;%GTK_ROOT%\include\gdk-pixbuf-2.0\gdk-pixbuf;%GTK_ROOT%\include\atk-1.0;C:\Program Files (x86)\Windows Kits\8.1\Include\um;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_CRT_SECURE_NO_DEPRECATE;LSB_FIRST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <PrecompiledHeader />
-      <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
@@ -93,7 +93,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <TargetMachine>MachineX86</TargetMachine>
-      <AdditionalLibraryDirectories>..\..\..\..\gtk+-dev_2.24.10-1_win32\lib;..\..\..\projects\MSVC\NoDiceLib\$(IntDir)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>%GTK_ROOT%\lib;..\..\..\projects\MSVC\NoDiceLib\$(IntDir)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>

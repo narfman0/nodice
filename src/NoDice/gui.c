@@ -1964,6 +1964,11 @@ static void gui_map_link_properties_clicked(GtkButton *button, gpointer user_dat
 
 void gui_boot(int argc, char *argv[])
 {
+#if GLIB_MAJOR_VERSION <= 2 && GLIB_MINOR_VERSION < 32
+	// Initialize threading
+	g_thread_init(NULL);
+#endif
+
 	gdk_threads_init();
 
 	// Initialize GTK+
@@ -2227,11 +2232,6 @@ static void gui_create_right_pane(GtkWidget *vbox)
 
 int gui_init()
 {
-#if GLIB_MAJOR_VERSION <= 2 && GLIB_MINOR_VERSION < 32
-	// Initialize threading
-	g_thread_init(NULL);
-#endif
-
 	// Create the main window
 	gui_main_window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
 	gtk_window_set_default_size(GTK_WINDOW(gui_main_window), 800, 600);

@@ -1,3 +1,6 @@
+
+[![Build Status](https://travis-ci.org/narfman0/nodice.svg?branch=master)](https://travis-ci.org/narfman0/nodice)
+
 # nodice
 NoDice level editor utility supporting southbird specific disassemblies. If you are running Windows, and you
 have no specific reason to build from source, you probably just want to use a prebuilt release version.

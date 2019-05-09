@@ -1,0 +1,7 @@
+language: cpp
+dist: xenial
+script: make
+addons:
+  apt:
+    packages:
+      - libgtk2.0-dev

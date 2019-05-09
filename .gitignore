@@ -1,0 +1,7 @@
+﻿/.vs
+**/Release
+**/Debug
+*.o
+*.a
+bin/NoDice
+obj/

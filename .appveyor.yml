@@ -1,0 +1,44 @@
+version: 1.0.{build}
+image: Visual Studio 2019 Preview
+configuration: Release
+environment:
+  GTK_ROOT: C:\projects\nodice\gtk+-dev_2.24.10-1_win32
+install:
+- ps: >-
+    $url = "https://github.com/narfman0/nodice/releases/download/0.1/gtk+-dev_2.24.10-1_win32.zip"
+
+    $output = "C:\projects\nodice\gtk-sdk.zip"
+
+    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+
+    (New-Object System.Net.WebClient).DownloadFile($url, $output)
+
+    Expand-Archive $output -DestinationPath C:\projects\nodice
+build:
+  verbosity: minimal
+artifacts:
+- path: Release\NoDice.exe
+- path: Release\nodice.zip
+on_success:
+- ps: >-
+    $url = "https://github.com/narfman0/nodice/releases/download/0.1/gtk-runtime.zip"
+
+    $output = "C:\projects\nodice\gtk-runtime.zip"
+
+    $builddir = "C:\projects\nodice\Release"
+
+    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+
+    (New-Object System.Net.WebClient).DownloadFile($url, $output)
+
+    Expand-Archive $output -DestinationPath $builddir
+
+    $url = "https://github.com/narfman0/nodice/releases/download/0.1/nesasm.exe"
+
+    (New-Object System.Net.WebClient).DownloadFile($url, "$builddir\nesasm.exe")
+
+    Copy-Item "C:\projects\nodice\bin\config.xml" -Destination $builddir
+
+    Compress-Archive -Path $builddir\* -CompressionLevel Fastest -DestinationPath $builddir\nodice
+
+    Push-AppveyorArtifact $builddir\nodice.zip

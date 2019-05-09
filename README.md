@@ -1,5 +1,7 @@
 
 [![Build Status](https://travis-ci.org/narfman0/nodice.svg?branch=master)](https://travis-ci.org/narfman0/nodice)
+[![Build status](https://ci.appveyor.com/api/projects/status/j9dbd9a5s2nk5j51?svg=true)](https://ci.appveyor.com/project/narfman0/nodice)
+
 
 # nodice
 NoDice level editor utility supporting southbird specific disassemblies. If you are running Windows, and you

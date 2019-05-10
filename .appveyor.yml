@@ -18,7 +18,9 @@ build:
   verbosity: minimal
 artifacts:
 - path: Release\NoDice.exe
-- path: Release\nodice.zip
+deploy:
+- provider: Environment
+  name: github
 on_success:
 - ps: >-
     $url = "https://github.com/narfman0/nodice/releases/download/0.1/gtk-runtime.zip"
